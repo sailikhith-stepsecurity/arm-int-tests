@@ -25,7 +25,8 @@ jobs:
       
       - name: Checkout code
         uses: actions/checkout@v3
-      - run: curl www.gitbook.com
+      - run: curl www.intel.com
+      - run: curl www.apple.com
       - name: Run outbound calls from host
         run: |
           start_time=$(date +%s)
