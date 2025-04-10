@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR Title
-        uses: step-security/conventional-pr-title-action@19fb561b33015fd2184055a05ce5a3bcf2ba3f54 # v3.2.0
+        uses: step-security/conventional-pr-title-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
