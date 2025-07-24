@@ -3,11 +3,15 @@ name: Trigger outbound calls by infra process
 on:
   workflow_dispatch: {}
 
+permissions: {}
+
 jobs:
   outbound-call:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@int
+      - uses: step-security/harden-runner@f1db3319d7db49c70352da1f5d1a122f754e8c01 # int
         with:
          egress-policy: audit
 
