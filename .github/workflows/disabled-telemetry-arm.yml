@@ -1,4 +1,4 @@
-name: Basic Tests
+name: Disabled Telemetry ARM
 
 on:
   workflow_dispatch:
@@ -7,22 +7,7 @@ on:
 #   contents: read
 
 jobs:
-  overwrite:
-    if: always()
-    runs-on: ARMLinuxRunner
-    steps:
-      - uses: step-security/harden-runner@rc
-        with:
-          egress-policy: audit
-      - uses: actions/checkout@v3
-
-      - name: echo overwrite
-        run: echo "## Overwritten" >> README.md
-
-      - name: mv overwrite
-        run: echo "# Replaced" >> README2.md; mv README2.md README.md
-
-  egress-test:
+  disabled-telemetry:
     if: always()
     runs-on: ARMLinuxRunner
     steps:
@@ -30,6 +15,7 @@ jobs:
         with:
           egress-policy: block
           disable-sudo: true
+          disable-telemetry: true
           allowed-endpoints: |
             www.google.com:443
 
@@ -37,3 +23,5 @@ jobs:
 
       - run: curl https://www.google.com
       - run: curl https://microsoft.com
+      - run: curl https://youtube.com
+      - run: curl https://bing.com
