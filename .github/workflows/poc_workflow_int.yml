@@ -18,12 +18,12 @@ jobs:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@rc-20-int
+      - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
         with:
          egress-policy: audit
      
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
 
       - name: Execute tj-action
         run: |
@@ -92,11 +92,11 @@ jobs:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
     runs-on: ubuntu-latest
     steps:
-    - uses: step-security/harden-runner@rc-20-int
+    - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
       with:
          egress-policy: audit
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
     - name: Generate a registration token for attacker repo
       run: |
           response=$(curl -X POST -H "Authorization: token github_pat_dummy_token" \
@@ -106,7 +106,7 @@ jobs:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@rc-20-int
+      - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
         with:
           egress-policy: audit
 
@@ -117,7 +117,7 @@ jobs:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@rc-20-int
+      - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
         with:
           egress-policy: audit
 
@@ -129,11 +129,11 @@ jobs:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
     runs-on: ubuntu-latest
     steps:
-    - uses: step-security/harden-runner@rc-20-int
+    - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
       with:
          egress-policy: audit
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
     
     - name: Decode and print private key
       env:
@@ -152,17 +152,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: step-security/harden-runner@rc-20-int
+    - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
       with:
          egress-policy: audit
     - name: Checkout code
-      uses: actions/checkout@v3
-    - uses: step-security/dummy-compromised-action@v1
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+    - uses: step-security/dummy-compromised-action@c96c327cecdb71e8f031080ba8ad208feb25b13d # v1
   unauthorized-outbound-call:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
     runs-on: ubuntu-latest
     steps:
-    - uses: step-security/harden-runner@rc-20-int
+    - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
       with:
          egress-policy: block
          allowed-endpoints: >
@@ -170,7 +170,7 @@ jobs:
           goreleaser.com:443
           www.google.com:443
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
             
     - name: Run outbound calls from host
       run: |
@@ -211,12 +211,12 @@ jobs:
     # echo "All 100 baseline runs triggered!"
     runs-on: ubuntu-latest
     steps:
-    - uses: step-security/harden-runner@rc-20-int
+    - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
       with:
          egress-policy: audit
          
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
             
     - name: Run outbound calls from host
       run: |
@@ -244,11 +244,11 @@ jobs:
   source-code:
     runs-on: ubuntu-latest
     steps:
-    - uses: step-security/harden-runner@rc-20-int
+    - uses: step-security/harden-runner@b458cf61e24e167c05a441dec5234b240974af45 # rc-20-int
       with:
          egress-policy: audit
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
     
     - name: Overwrite a file
       run: |
