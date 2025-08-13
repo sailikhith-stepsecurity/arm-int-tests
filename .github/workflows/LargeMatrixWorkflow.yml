@@ -10,8 +10,12 @@ on:
   pull_request:
  
 
+permissions: {}
+
 jobs:
   generate-jobs:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     name: Generate Jobs
     runs-on: ubuntu-latest
     strategy:

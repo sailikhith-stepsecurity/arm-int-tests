@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
     
 
+permissions: {}
+
 jobs:
 
   build:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     runs-on: ubuntu-latest
     #runs-on: [self-hosted, ec2]
     steps:

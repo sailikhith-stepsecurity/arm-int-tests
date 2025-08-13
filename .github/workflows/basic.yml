@@ -6,8 +6,12 @@ on:
 # permissions:
 #   contents: read
 
+permissions: {}
+
 jobs:
   overwrite:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     if: always()
     runs-on: ARMLinuxRunner
     steps:
@@ -23,6 +27,8 @@ jobs:
         run: echo "# Replaced" >> README2.md; mv README2.md README.md
 
   egress-test:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     if: always()
     runs-on: ARMLinuxRunner
     steps:

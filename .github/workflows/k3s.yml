@@ -3,8 +3,12 @@ name: k3s Outbound Connectivity Test
 on:
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   k3s-test:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     runs-on: ubuntu-latest
 
     steps:

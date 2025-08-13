@@ -2,8 +2,12 @@ name: 2. Exfiltration Simulation
 on:
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   exfiltration-simulation:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner

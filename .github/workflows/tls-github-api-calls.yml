@@ -6,6 +6,8 @@ on:
 # permissions:
 #   contents: read
 
+permissions: {}
+
 jobs:
   issue-create:
     permissions:

@@ -6,8 +6,12 @@ on:
 # permissions:
 #   contents: read
 
+permissions: {}
+
 jobs:
   disabled-telemetry:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     if: always()
     runs-on: ARMLinuxRunner
     steps:

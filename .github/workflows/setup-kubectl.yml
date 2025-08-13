@@ -2,8 +2,12 @@ name: azure/setup-kubectl
 on:
   workflow_dispatch:
   
+permissions: {}
+
 jobs:
   generate-jobs:
+    permissions:
+      contents: read
     name: Generate Jobs
     runs-on: ubuntu-latest
    
