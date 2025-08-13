@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-slim@sha256:df2a14a136de9ecf4169a9cf02dd9f13ca22fae17cf0c7319cb92ddd7fe999b0
 
 RUN useradd --system --create-home --shell /bin/bash clamavuser
 
