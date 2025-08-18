@@ -4,15 +4,19 @@ on:
   workflow_dispatch:
     
 
+permissions: {}
+
 jobs:
 
   build:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
     runs-on: ubuntu-latest
     #runs-on: [self-hosted, ec2]
     steps:
 
     - name: Harden Runner
-      uses: step-security/harden-runner@rc
+      uses: step-security/harden-runner@97bbed2426f3310cf21ffa4c69621c6307aa8a4e # rc
       with:
         egress-policy: audit
         allowed-endpoints: >
