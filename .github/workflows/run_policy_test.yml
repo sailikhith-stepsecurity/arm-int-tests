@@ -15,11 +15,23 @@ jobs:
         with:
           egress-policy: audit
 
+      - name: sleep
+        run: |
+          echo "Sleep 5"
+          sleep 5
+
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Use compromised action (should be blocked)
         uses: step-security/dummy-compromised-action@v1
+        
+      - name: sleep
+        if: always()
+        run: |
+          echo "Sleep 5"
+          sleep 5
 
       - name: Display results
         run: |
