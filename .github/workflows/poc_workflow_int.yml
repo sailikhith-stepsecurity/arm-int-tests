@@ -23,7 +23,7 @@ jobs:
          egress-policy: audit
      
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Execute tj-action
         run: |
@@ -96,7 +96,7 @@ jobs:
       with:
          egress-policy: audit
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Generate a registration token for attacker repo
       run: |
           response=$(curl -X POST -H "Authorization: token github_pat_dummy_token" \
@@ -133,7 +133,7 @@ jobs:
       with:
          egress-policy: audit
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
     
     - name: Decode and print private key
       env:
@@ -156,7 +156,7 @@ jobs:
       with:
          egress-policy: audit
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
     - uses: step-security/dummy-compromised-action@v1
   unauthorized-outbound-call:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
@@ -170,7 +170,7 @@ jobs:
           goreleaser.com:443
           www.google.com:443
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
             
     - name: Run outbound calls from host
       run: |
@@ -216,7 +216,7 @@ jobs:
          egress-policy: audit
          
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
             
     - name: Run outbound calls from host
       run: |
@@ -248,7 +248,7 @@ jobs:
       with:
          egress-policy: audit
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
     
     - name: Overwrite a file
       run: |
