@@ -12,7 +12,10 @@ on:
         required: false
         default: false
         type: boolean
-
+permissions:
+  contents: read
+  id-token: write
+  
 jobs:
   tj-actions-simulation:
     if: ${{ github.event.inputs.run_only_anomalous != 'true' }}
