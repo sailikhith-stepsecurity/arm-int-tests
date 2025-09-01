@@ -257,3 +257,20 @@ jobs:
     - name: Overwrite a file again
       run: |
         echo "hello2" >> README.MD
+
+
+  policy-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: step-security/harden-runner@rc-20-int
+      with:
+         policy: new-old
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Curl youtube
+      run: |
+        curl https://youtube.com     
+    - name: Curl google
+      run: |
+        curl https://google.com
